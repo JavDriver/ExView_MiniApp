@@ -19,3 +19,11 @@
 ![](https://github.com/ghostgzt/ExView_MiniApp/blob/master/samples/9.PNG?raw=true)
 ![](https://github.com/ghostgzt/ExView_MiniApp/blob/master/samples/10.PNG?raw=true)
 ![](https://github.com/ghostgzt/ExView_MiniApp/blob/master/samples/11.PNG?raw=true)
+
+# 有好心的小哥哥和小姐姐想请本萌妹吃饭么(≥///ω///≤) ♡  
+<img src="https://github.com/ghostgzt/ExView_MiniApp/blob/master/src/images/support_weixin.png?raw=true" width="400px" />
+<img src="https://github.com/ghostgzt/ExView_MiniApp/blob/master/src/images/support_zhifubao.png" width="400px" />
+<img src="https://github.com/ghostgzt/ExView_MiniApp/blob/master/src/images/zd.png?raw=true" />
+<img src="https://github.com/ghostgzt/ExView_MiniApp/blob/master/src/images/szx.png?raw=true" />
+  
+### ExView_MiniApp  Copyright (C) 2017  Gentle Kwan Under GPL
