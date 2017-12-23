@@ -1,0 +1,105 @@
+<!--index.wxml-->
+<view class="container">
+<loading hidden="{{hiddenLoading}}">正在加载</loading>
+<div class="tabpage" wx:if="{{!pageid}}">
+  <scroll-view enable-back-to-top="true" class="scroller" scroll-x="false" scroll-y="true">
+    <div class="card" wx:for="{{itemArray}}" wx:key="{{item.id}}">
+      <image bindtap="cardtap" id="{{item.id}}" data-json="{{item}}" class="cover" src="{{item.cover}}" background-size="contain" background-position="center"></image>
+      <div class="content">
+        <div class="title" bindtap="cardtap" id="{{item.id}}" data-json="{{item}}">{{item.name}}</div>
+        <div class="subtitle" bindtap="cardtap" id="{{item.id}}" data-json="{{item}}">{{item.author}}</div>
+        <div class="tags" bindtap="desctap" data-json="{{item}}">
+          <div class="tag" wx:for="{{item.tag_list}}" wx:key="{{item}}">{{item}}</div>
+          <div>{{item.description||''}}</div>
+        </div>
+        <div class="buttons">
+          <div class="button" id="{{item.id}}" data-json="{{item}}" bindtap="startap">订阅</div>
+          <!-- <div class="button" id="{{item.id}}" bindtap="previewtap">预览</div> -->
+          <div class="button" id="{{item.id}}" data-json="{{item}}" bindtap="moretap">更多</div>
+        </div>
+      </div>
+    </div>  
+    <div class="loadother" bindtap="loadother">点击加载其他推荐</div>           
+  </scroll-view>
+  </div>
+
+  <div class="tabpage" wx:if="{{pageid==1&&released}}">
+    <div class="searchbox"><image bindtap="logotap" src="/images/logo.png" class="logo"></image><input bindconfirm="bindconfirm" bindinput="bindKeyInput" placeholder="请输入搜索的相关字符" /><div bindtap="searchtap" class="submit">Go</div></div>
+    <scroll-view enable-back-to-top="true" class="scroller" scroll-x="false" scroll-y="true">
+      <div class="cats">
+        <div id="all" class="cat" bindtap="cattap"><div class="cover">全</div><div class="title">全部</div></div>
+        <div id="{{index+1}}" bindtap="cattap" wx:for="{{catArray}}" wx:key="{{index}}" class="cat"><div class="cover">{{item[0]}}</div><div class="title">{{item}}</div></div>
+      </div>   
+    </scroll-view>
+  </div>
+
+  <div class="tabpage" wx:if="{{pageid==2}}">
+    <scroll-view enable-back-to-top="true" wx:if="{{starArray.length}}" class="scroller" scroll-x="false" scroll-y="true">
+    <div class="checkupdate" bindtap="checktap">点击检查更新状态</div>
+    <div class="card" wx:for="{{starArray}}" wx:key="{{item.id}}">
+    <div class="progress">{{!item.chapters_count||!item.nowid?'待阅读':((item.nowid)+'/'+item.chapters_count)}}</div>
+      <image bindtap="cardtap" id="{{item.id}}" data-json="{{item}}" class="cover" src="{{item.cover}}" background-size="contain" background-position="center"></image>
+      <div class="content">
+        <div class="title" bindtap="cardtap" id="{{item.id}}" data-json="{{item}}">{{item.name}}</div>
+        <div class="subtitle" bindtap="cardtap" id="{{item.id}}" data-json="{{item}}">{{item.author}}</div>
+        <div class="tags" bindtap="desctap" data-json="{{item}}" >
+          <div class="tag" wx:for="{{item.tag_list}}" wx:key="{{item}}">{{item}}</div>
+          <div>{{item.description||''}}</div>
+        </div>
+        <div class="buttons">
+          <div class="button" id="{{item.id}}" data-json="{{item}}" bindtap="delstartap">退订</div>
+          <!-- <div class="button" id="{{item.id}}" bindtap="previewtap">预览</div> -->
+          <div class="button" id="{{item.id}}" data-json="{{item}}" bindtap="moretap">更多</div>
+        </div>
+      </div>
+    </div>    
+    </scroll-view>
+    <div wx:else class="nocontent">没有订阅漫画</div>
+  </div>
+  <div class="tabpage" wx:if="{{pageid==3}}">
+    <scroll-view enable-back-to-top="true" class="scroller" scroll-x="false" scroll-y="true">
+    <div class="about">
+      <image class="aboutimg aboutlogo" mode="aspectFit" src="/images/logo.png"></image>
+      <text space="nbsp" decode="true">\n\n作者:     Gentle Kwan\n微信:     ghostgzt\nQQ:      1275731466\n公众号:  光与影交错的时空\n支付宝:  ghostgzt@163.com\nPayPal:  ghostgzt@gmail.com\n官网:      exview.gtool.ml/ExView\n电报群:   http://t.cn/RjnR1td\n秋名山驾校(Q群):\n【主校区】   542710954(姬佬群，群主是个RBQ)\n【第二分校】274695822(萌新群)\n【第三分校】416613442(吃瓜群众)\n【第四分校】591859003(吃瓜群众)\n【第五分校】588751182(吃瓜群众)\n\n</text>
+      <image class="aboutimg" src="/images/zd.png" mode="widthFix"></image>
+      <text space="nbsp" decode="true">\n\n此为ExView的小程序版本，想要体验更多功能，请前往官网下载APP\n\n</text>
+      <image class="aboutimg" src="/images/mz.png" mode="widthFix"></image>
+      <text space="nbsp" decode="true">\n\n在下是广州某天桥底下的一只萌妹♂哦，很多天没吃饭啦，有没有小姐姐和大哥哥打赏些小钱给我吃饭啊QxQ\n\n</text>
+
+      <image class="aboutimg" mode="widthFix" src="/images/support_weixin.png"></image>
+      <image class="aboutimg" mode="widthFix" src="/images/support_zhifubao.png"></image>
+
+      <image class="aboutimg" src="/images/szx.png" mode="widthFix"></image>
+    </div>
+    </scroll-view>
+  </div>
+  <div class="tabs" wx:if="{{released}}">
+    <div id="home" class="tab {{!pageid?'active':''}}" bindtap="tabtap">推荐</div>
+    <div id="category" class="tab {{pageid==1?'active':''}}" bindtap="tabtap">分类</div>
+    <div id="star" class="tab {{pageid==2?'active':''}}" bindtap="tabtap">订阅</div>
+    <div id="about" class="tab {{pageid==3?'active':''}}" bindtap="tabtap">关于</div>
+  </div>
+  <div class="tabpage unrelease" wx:if="{{released===false}}">
+    <textarea placeholder="请输入需要处理的字符串" maxlength="-1" bindinput="unreleaseinput" value="{{unreleasevalue}}"></textarea>
+    <scroll-view enable-back-to-top="true" class="unreleasescroller" scroll-x="false" scroll-y="true">
+      <button bindtap="onempty">清空文本</button>
+      <button bindtap="onmd5">MD5加密</button>
+      <button bindtap="onbase64en">Base64加密</button>
+      <button bindtap="onbase64de">Base64解密</button>
+      <button bindtap="onurlen">URL加密</button>
+      <button bindtap="onurlde">URL解密</button>
+      <button bindtap="onescape">Escape加密</button>
+      <button bindtap="onunescape">Escape解密</button>
+    </scroll-view>
+  </div>
+  <!--<view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2474087338,407748479&fm=173&s=C0611F70AC6B700940F5C2C70300C0A2&w=218&h=146&img.JPEG" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>-->
+</view>

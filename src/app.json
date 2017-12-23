@@ -1,0 +1,14 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/category/category",
+    "pages/detail/detail",
+    "pages/read/read"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ExView",
+    "navigationBarTextStyle":"black"
+  }
+}

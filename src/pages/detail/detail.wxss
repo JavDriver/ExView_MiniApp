@@ -1,0 +1,95 @@
+/**detail.wxss**/
+.container {
+  height:100vh;
+  width: 100vw;
+  padding:0;
+  box-sizing:border-box;
+}
+.scroller {
+  flex-grow:1;
+  overflow:auto;  
+}
+  
+.card{
+  display: flex;
+  background-color: white;
+  width:calc(100vw - 16px);
+  height:calc(50vw - 16px); 
+  border: 1px solid black;
+  margin: 8px;
+  flex-shrink: 0;
+}
+.card .cover{
+  width: 35%;
+  height: 100%;
+  background-color: black;
+  flex-shrink: 0;
+}
+.card .content{
+  display: flex;
+  flex-direction: column;
+  width:70%;
+  border-left:1px solid black;  
+}
+.card .title{
+  margin: 8px 8px 0 8px;
+  font-size: 20px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card .subtitle{
+  margin: 8px;
+  font-size: 16px;
+  color: grey;
+  flex-shrink: 0;
+}
+.card .tags{
+  flex-grow: 1;
+  margin: 0 8px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow:hidden;  
+}
+.card .tags .tag{
+  border:1px solid black;
+  margin: 3px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 16px;
+}
+
+.card .buttons{
+  flex-shrink: 0;
+  height: 48px;
+  line-height: 48px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 8px;
+  border-top:1px solid black;  
+  background-color: white;
+}
+
+.card .buttons .button{
+  text-align: center;
+}
+
+.chapter{
+  width:calc(100% - 16px);
+  display:inline-block;
+  text-align:center;
+  margin:2px 8px;
+  border:1px solid black;
+  line-height:32px;
+  height:32px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;  
+}
+
+.chapter.active {
+  background: gray;
+}
+

@@ -1,0 +1,9 @@
+<!--detail.wxml-->
+<view class="container" wx:if="{{query.pid}}">
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+  <scroll-view enable-back-to-top="true" class="scroller" scroll-x="false" scroll-y="true">
+    <div wx:if="{{nowid>1}}" class="loadprev" bindtap="loadprev">点击加载上一话 {{prevchaptername}}</div>
+    <image class="img" mode="widthFix" src="{{item}}" wx:for="{{imgArray}}" wx:key="{{index}}"></image>
+    <div wx:if="{{nowid<chapterArray.length}}" class="loadnext" bindtap="loadnext">点击加载下一话 {{nextchaptername}}</div>  
+  </scroll-view>
+</view>

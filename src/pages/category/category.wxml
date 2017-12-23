@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{query.id||query.keyword}}">
+  <loading hidden="{{hiddenLoading}}">正在加载</loading>
+  <scroll-view wx:if="{{itemArray.length}}" class="scroller" scroll-x="false" scroll-y="true">
+    <div wx:if="{{page>1}}" class="loadprev" bindtap="loadprev">点击加载上一页</div>
+    <div class="card" wx:for="{{itemArray}}" wx:key="{{item.id}}">
+      <image bindtap="cardtap" id="{{item.id}}" data-json="{{item}}" class="cover" src="{{item.cover}}" background-size="contain" background-position="center"></image>
+      <div class="content">
+        <div class="title" bindtap="cardtap" id="{{item.id}}" data-json="{{item}}">{{item.name}}</div>
+        <div class="subtitle" bindtap="cardtap" id="{{item.id}}" data-json="{{item}}">{{item.author}}</div>
+        <div class="tags" bindtap="desctap" id="{{item.id}}" data-json="{{item}}">
+          <div class="tag" wx:for="{{item.tag_list}}" wx:key="{{item}}">{{item}}</div>
+          <div>{{item.description||''}}</div>
+        </div>
+        <div class="buttons">
+          <div class="button" id="{{item.id}}" data-json="{{item}}" bindtap="startap">订阅</div>
+          <!-- <div class="button" id="{{item.id}}" bindtap="previewtap">预览</div> -->
+          <div class="button" id="{{item.id}}" data-json="{{item}}" bindtap="moretap">更多</div>
+        </div>
+      </div>
+    </div>
+    <div wx:if="{{page<pagecount}}" class="loadnext" bindtap="loadnext">点击加载下一页</div>        
+  </scroll-view>
+</view>
